@@ -1,6 +1,7 @@
 package com.netmind.presentation;
 
 import com.netmind.business.Calculator;
+import com.netmind.ejercicios.DemoArray;
 
 public class Principal {
 
@@ -9,6 +10,10 @@ public class Principal {
 		System.out.println("Hola Mundo");
 		
 		Calculator calculator = new Calculator();
+		
+		DemoArray array = new DemoArray();
+		
+		System.out.println(array.sumArray());
 
 	}
 
