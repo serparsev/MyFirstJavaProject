@@ -16,17 +16,20 @@ public class CalculatorIntegrationTest {
 
 	@Test
 	public void testSubstract() {
-		fail("Not yet implemented");
+		Calculator calculator = new Calculator();
+		assertEquals(calculator.substract(4, 2),2);
 	}
 
 	@Test
 	public void testMultiply() {
-		fail("Not yet implemented");
+		Calculator calculator = new Calculator();
+		assertEquals(calculator.multiply(4, 2),8);
 	}
 
 	@Test
 	public void testDivide() {
-		fail("Not yet implemented");
+		Calculator calculator = new Calculator();
+		assertEquals(calculator.divide(4, 2),2);
 	}
 
 }
