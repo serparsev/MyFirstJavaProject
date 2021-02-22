@@ -12,7 +12,13 @@ import com.netmind.model.Student;
 
 public class StudentBl {
 
-	public boolean add(Student student) {
+	private Integer idStudent;
+	private String name;
+	private String surname;
+	private Integer age;
+	private Date dateOfBirth;
+
+	public boolean add() {
 		Scanner scanner = new Scanner(System.in);
 		StudentDao studentDao = new StudentDao();
 
@@ -20,26 +26,27 @@ public class StudentBl {
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 
 		System.out.println("Id del estudiante:");
-		student.setIdStudent(scanner.nextInt());
+		idStudent = scanner.nextInt();
 
 		System.out.println("Nombre del estudiante:");
 		scanner.nextLine();
-		student.setName(scanner.nextLine());
+		name = scanner.nextLine();
 
 		System.out.println("Apellido del estudiante:");
-		student.setSurname(scanner.nextLine());
+		surname = scanner.nextLine();
 
 		System.out.println("Fecha de nacimiento del estudiante (dd/mm/yyyy):");
 		String stringDate = scanner.nextLine();
 
 		LocalDate birthDate = LocalDate.parse(stringDate, formatter);
 
-		Date classDate = Date
+		dateOfBirth = Date
 				.from(birthDate.atStartOfDay(defaultZoneId).toInstant());
-		student.setDateOfBirth(classDate);
 
-		Period age = Period.between(birthDate, LocalDate.now());
-		student.setAge(age.getYears());
+		age = Period.between(birthDate, LocalDate.now()).getYears();
+
+		Student student = new Student.Builder(idStudent, name, surname).age(age)
+				.dateOfBirth(dateOfBirth).build();
 
 		studentDao.add(student);
 

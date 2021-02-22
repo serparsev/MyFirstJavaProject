@@ -4,14 +4,12 @@ import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
 import com.netmind.dao.StudentDao;
-import com.netmind.model.Student;
 
 public class Menu {
 
 	public static void menu() {
 
 		Scanner scanner = new Scanner(System.in);
-		Student student = new Student();
 		StudentBl studentBl = new StudentBl();
 		StudentDao studentDao = new StudentDao();
 
@@ -32,7 +30,7 @@ public class Menu {
 			switch (value) {
 
 			case 1:
-				studentBl.add(student);
+				studentBl.add();
 				break;
 			case 4:
 				studentDao.list();
