@@ -16,7 +16,7 @@ public class Student {
 		private final String name;
 		private final String surname;
 
-		// Oprional parameters - inizializated to default values
+		// Optional parameters - inizializated to default values
 		private Integer age = 0;
 		private Date dateOfBirth = null;
 
