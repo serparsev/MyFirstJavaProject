@@ -9,7 +9,9 @@ import com.netmind.model.Student;
 public class StudentDao {
 
 	private static final String FILE_PATH = "C:\\Users\\serpa\\eclipse-workspace\\testFile.txt";
+
 	private static ArrayList<Student> studentList = null;
+
 	static {
 		studentList = new ArrayList<Student>();
 
@@ -33,15 +35,7 @@ public class StudentDao {
 
 	public boolean add(Student student) {
 		studentList.add(student);
-		System.out.println("Estudiante añadido correctamente \n");
-		System.out.println(student);
 		return true;
 
 	}
-
-	public boolean list() {
-		System.out.println(studentList);
-		return true;
-	}
-
 }

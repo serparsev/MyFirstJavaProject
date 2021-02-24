@@ -4,49 +4,63 @@ import java.util.Date;
 
 public class Student {
 
-	private final Integer idStudent;
-	private final String name;
-	private final String surname;
-	private final Integer age;
-	private final Date dateOfBirth;
+	private Integer idStudent;
+	private String name;
+	private String surname;
+	private Integer age;
+	private Date dateOfBirth;
 
-	public static class Builder {
-		// Required parameters
-		private final Integer idStudent;
-		private final String name;
-		private final String surname;
-
-		// Optional parameters - inizializated to default values
-		private Integer age = 0;
-		private Date dateOfBirth = null;
-
-		public Builder(Integer idStudent, String name, String surname) {
-			this.idStudent = idStudent;
-			this.name = name;
-			this.surname = surname;
-		}
-
-		public Builder dateOfBirth(Date value) {
-			dateOfBirth = value;
-			return this;
-		}
-
-		public Builder age(Integer value) {
-			age = value;
-			return this;
-		}
-
-		public Student build() {
-			return new Student(this);
-		}
+	public Integer getIdStudent() {
+		return idStudent;
 	}
 
-	private Student(Builder builder) {
-		idStudent = builder.idStudent;
-		name = builder.name;
-		surname = builder.surname;
-		age = builder.age;
-		dateOfBirth = builder.dateOfBirth;
+	public void setIdStudent(Integer idStudent) {
+		this.idStudent = idStudent;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public Student() {
+	}
+
+	public Student(Integer idStudent, String name, String surname, Integer age,
+			Date dateOfBirth) {
+		super();
+		this.idStudent = idStudent;
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	@Override
