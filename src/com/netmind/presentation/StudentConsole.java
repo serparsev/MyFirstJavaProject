@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
+import com.netmind.model.EnumStudent;
 import com.netmind.model.Student;
 
 public class StudentConsole {
@@ -22,19 +23,21 @@ public class StudentConsole {
 		while (!exit) {
 			showPrincipalMenu();
 			value = Integer.parseInt(scanner.nextLine());
+			EnumStudent option = EnumStudent.values()[value];
 
-			switch (value) {
-			case 1:
+			switch (option) {
+			case ADD_STUDENT:
 				Student student = new Student();
 				addStudent(student, scanner);
 				studentBl.add(student);
 				break;
-			case 4:
-				break;
-			case 5:
+			case EXIT:
 				exit = true;
 				scanner.close();
 				System.out.println("Hasta otra!");
+				break;
+			default:
+				System.out.println("Opcion no valida");
 				break;
 			}
 		}
@@ -48,7 +51,7 @@ public class StudentConsole {
 		System.out.println(
 				"3- Calcular la media de edad de todos los estudiantes");
 		System.out.println("4- Mostrar todos los estudiantes");
-		System.out.println("5- Salir");
+		System.out.println("0- Salir");
 	}
 
 	private static boolean addStudent(Student student, Scanner scanner) {
