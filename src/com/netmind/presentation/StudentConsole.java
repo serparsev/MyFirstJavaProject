@@ -24,7 +24,7 @@ public class StudentConsole {
 		while (!exit) {
 			showPrincipalMenu();
 			value = Integer.parseInt(scanner.nextLine());
-			EnumStudent option = EnumStudent.values()[value];
+			EnumStudent option = EnumStudent.fromValue(value);
 
 			switch (option) {
 			case ADD_STUDENT:
@@ -52,7 +52,7 @@ public class StudentConsole {
 		System.out.println(
 				"3- Calcular la media de edad de todos los estudiantes");
 		System.out.println("4- Mostrar todos los estudiantes");
-		System.out.println("0- Salir");
+		System.out.println("5- Salir");
 	}
 
 	private static boolean addStudent(Student student, Scanner scanner) {
