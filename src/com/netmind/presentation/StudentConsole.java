@@ -1,5 +1,6 @@
 package com.netmind.presentation;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -12,7 +13,7 @@ import com.netmind.model.Student;
 
 public class StudentConsole {
 
-	public static void showMenu() {
+	public static void showMenu() throws IOException {
 
 		Scanner scanner = new Scanner(System.in);
 		StudentBl studentBl = new StudentBl();
