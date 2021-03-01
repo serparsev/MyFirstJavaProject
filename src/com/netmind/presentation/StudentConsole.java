@@ -2,9 +2,7 @@ package com.netmind.presentation;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
@@ -17,26 +15,29 @@ public class StudentConsole {
 
 		Scanner scanner = new Scanner(System.in);
 		StudentBl studentBl = new StudentBl();
+		EnumStudent enumStudent = null;
+		int option;
 
-		int value;
 		boolean exit = false;
 
 		while (!exit) {
 			showPrincipalMenu();
-			value = Integer.parseInt(scanner.nextLine());
-			EnumStudent option = EnumStudent.fromValue(value);
+			option = Integer.parseInt(scanner.nextLine());
+			enumStudent = EnumStudent.fromValue(option);
 
-			switch (option) {
+			switch (enumStudent) {
 			case ADD_STUDENT:
 				Student student = new Student();
 				addStudent(student, scanner);
 				studentBl.add(student);
 				break;
+
 			case EXIT:
 				exit = true;
 				scanner.close();
 				System.out.println("Hasta otra!");
 				break;
+
 			default:
 				System.out.println("Opcion no valida");
 				break;
@@ -58,7 +59,6 @@ public class StudentConsole {
 	private static boolean addStudent(Student student, Scanner scanner) {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		ZoneId defaultZoneId = ZoneId.systemDefault();
 
 		System.out.println("1- Insertar nuevo alumno");
 		System.out.println("Id del estudiante:");
@@ -75,8 +75,7 @@ public class StudentConsole {
 
 		LocalDate birthDate = LocalDate.parse(stringDate, formatter);
 
-		student.setDateOfBirth(
-				Date.from(birthDate.atStartOfDay(defaultZoneId).toInstant()));
+		student.setDateOfBirth(birthDate);
 
 		return true;
 
