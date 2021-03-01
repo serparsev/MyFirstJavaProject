@@ -1,12 +1,12 @@
 package com.netmind.model;
 
 public enum EnumStudent {
-	ADD_STUDENT(1), OLDEST_STUDENT(2), EXIT(5);
+	ADD_STUDENT(1), OLDEST_STUDENT(2), EXIT(3);
 
 	private int value;
 
-	private EnumStudent(int valu) {
-
+	private EnumStudent(int value) {
+		this.value = value;
 	}
 
 	public static EnumStudent fromValue(int value) {
@@ -15,6 +15,7 @@ public enum EnumStudent {
 				return my;
 			}
 		}
+
 		return null;
 	}
 
